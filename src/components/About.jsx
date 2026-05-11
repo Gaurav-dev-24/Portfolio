@@ -33,25 +33,25 @@ export default function About() {
       const textElements = textContainerRef.current.querySelectorAll('.stagger-reveal');
       const imgElement = imageContainerRef.current;
 
-      tl.fromTo(imgElement, 
-        { opacity: 0, x: -50 }, 
+      tl.fromTo(imgElement,
+        { opacity: 0, x: -50 },
         { opacity: 1, x: 0, duration: 1.2, ease: "power3.out" }
       )
-      .fromTo(textElements, 
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" },
-        "-=0.8"
-      );
-      
+        .fromTo(textElements,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out" },
+          "-=0.8"
+        );
+
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section 
+    <section
       id="about"
-      ref={sectionRef} 
+      ref={sectionRef}
       className="relative w-full min-h-screen bg-black flex items-center justify-center py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
     >
       {/* Background Ambience Layer */}
@@ -61,26 +61,26 @@ export default function About() {
       </div>
 
       <div className="max-w-[90rem] w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
-        
+
         {/* Left Column: Interactive Portrait */}
-        <div 
+        <div
           ref={imageContainerRef}
-          className="relative w-full aspect-square max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden group shadow-2xl border border-white/5 cursor-pointer"
+          className="relative w-full aspect-[4/5] max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden group shadow-2xl border border-white/5 cursor-pointer"
           style={{ transform: 'translateZ(0)' }}
         >
           {/* Base Layer: Sketch Portrait */}
-          <img 
-            src={imgSketch} 
-            alt="Gaurav Jangid Sketch" 
-            className="absolute inset-0 w-full h-full object-cover object-top opacity-80 mix-blend-luminosity brightness-90 transition-all duration-[1.5s] ease-in-out group-hover:opacity-0 group-hover:scale-105"
+          <img
+            src={imgSketch}
+            alt="Gaurav Jangid Sketch"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-80 mix-blend-luminosity brightness-90 transition-all duration-[1.5s] ease-in-out group-hover:opacity-0 group-hover:scale-105"
           />
 
           {/* Reveal Layer: Real Photo */}
           <div className="absolute inset-0 w-full h-full opacity-0 transition-all duration-[1.5s] ease-in-out group-hover:opacity-100">
-            <img 
-              src={imgMan} 
-              alt="Gaurav Jangid Photo" 
-              className="absolute inset-0 w-full h-full object-cover object-top scale-105 transition-transform duration-[1.5s] ease-in-out group-hover:scale-100"
+            <img
+              src={imgMan}
+              alt="Gaurav Jangid Photo"
+              className="absolute inset-0 w-full h-full object-cover object-center scale-105 transition-transform duration-[1.5s] ease-in-out group-hover:scale-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
           </div>
@@ -88,7 +88,7 @@ export default function About() {
 
         {/* Right Column: Story & Details */}
         <div ref={textContainerRef} className="flex flex-col justify-center space-y-10">
-          
+
           <div className="overflow-hidden">
             <p className="stagger-reveal text-sm text-gray-500 font-mono tracking-[0.3em] uppercase mb-2">[ About ]</p>
             <h2 className="stagger-reveal text-4xl md:text-6xl font-bold tracking-tighter text-white font-sans leading-tight">
@@ -131,7 +131,7 @@ export default function About() {
               </p>
             </blockquote>
           </div>
-          
+
         </div>
 
       </div>
