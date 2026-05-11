@@ -59,7 +59,7 @@ void main() {
   float currentRadius = uRadius * uHovered;
 
   // The mask (1.0 where top image shows, 0.0 where bottom image shows)
-  float mask = 1.0 - smoothstep(currentRadius - uSoftness, currentRadius + uSoftness, dist);
+  float mask = (1.0 - smoothstep(currentRadius - uSoftness, currentRadius + uSoftness, dist)) * uHovered;
   
   // Add a small ripple / distortion on the edge of the mask
   vec2 distortedUv = uvCover + (mask * (1.0 - mask)) * 0.05 * uHovered;
